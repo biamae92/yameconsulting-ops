@@ -1,0 +1,323 @@
+export default function YameConsultingDashboard() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white overflow-x-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative z-10 px-6 py-12 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+              <div className="space-y-6 max-w-2xl">
+                <div className="inline-flex items-center gap-3 bg-emerald-500/10 border border-emerald-400/20 px-5 py-2 rounded-full text-sm text-emerald-300 shadow-lg">
+                  AFTER-HOURS DAILY OPERATIONS SOP
+                </div>
+
+                <div className="space-y-3">
+                  <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-none">
+                    YAME
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-yellow-300">
+                      CONSULTING
+                    </span>
+                  </h1>
+
+                  <p className="text-xl text-slate-300 leading-relaxed">
+                    Your accounting made easy — operational oversight, billing integrity,
+                    ticket health, and ShareFile verification in one immersive 3D dashboard.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <button className="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-400 to-emerald-600 font-semibold shadow-2xl hover:scale-105 transition-all duration-300">
+                    Launch Dashboard
+                  </button>
+
+                  <button className="px-6 py-3 rounded-2xl border border-white/20 bg-white/5 hover:bg-white/10 transition-all duration-300">
+                    View SOP
+                  </button>
+                </div>
+              </div>
+
+              {/* 3D Logo Card */}
+              <div className="relative perspective-[1000px]">
+                <div className="transform rotate-y-12 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-all duration-700 bg-white rounded-[30px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-slate-200/40">
+                  <svg
+                    viewBox="0 0 700 220"
+                    className="w-[340px] max-w-full drop-shadow-2xl"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="700" height="220" rx="24" fill="white" />
+
+                    <circle cx="60" cy="55" r="18" fill="#D4A73D" />
+                    <circle cx="85" cy="80" r="18" fill="#D4A73D" />
+                    <circle cx="110" cy="105" r="18" fill="#D4A73D" />
+                    <circle cx="60" cy="100" r="18" fill="#D4A73D" />
+                    <circle cx="85" cy="125" r="18" fill="#D4A73D" />
+                    <circle cx="110" cy="150" r="18" fill="#D4A73D" />
+
+                    <text
+                      x="170"
+                      y="95"
+                      fontSize="42"
+                      fontWeight="700"
+                      fill="#6D8C72"
+                      fontFamily="Georgia"
+                    >
+                      YAME CONSULTING
+                    </text>
+
+                    <text
+                      x="260"
+                      y="140"
+                      fontSize="24"
+                      fill="#444"
+                      fontFamily="cursive"
+                    >
+                      Your accounting made easy
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOP Overview */}
+      <section className="relative z-10 px-6 md:px-16 py-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Time Entries',
+              icon: '⏱️',
+              items: [
+                'Missing entries',
+                'Incorrect descriptions',
+                'Incomplete descriptions',
+                'QBO logins mismatch',
+                'Overlogged hours'
+              ]
+            },
+            {
+              title: 'Ticket Health',
+              icon: '🎫',
+              items: [
+                'Stale tickets >24h',
+                'Updates mismatch',
+                'Comments outside logged time',
+                'Client service risks',
+                'Daily ticket validation'
+              ]
+            },
+            {
+              title: 'ShareFile Verification',
+              icon: '📂',
+              items: [
+                'Uploads completed',
+                'Correct folder placement',
+                'No partial files',
+                'Clear naming conventions',
+                'Documentation completeness'
+              ]
+            }
+          ].map((card, index) => (
+            <div
+              key={index}
+              className="group relative bg-white/5 border border-white/10 rounded-[28px] p-7 backdrop-blur-xl hover:-translate-y-2 transition-all duration-500 shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[28px]"></div>
+
+              <div className="relative z-10 space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="text-5xl">{card.icon}</div>
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center text-emerald-300 font-bold">
+                    0{index + 1}
+                  </div>
+                </div>
+
+                <h2 className="text-2xl font-bold text-white">{card.title}</h2>
+
+                <ul className="space-y-3 text-slate-300">
+                  {card.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-emerald-300 mt-1">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Dashboard Section */}
+      <section className="relative z-10 px-6 md:px-16 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <div>
+              <h2 className="text-4xl font-black">Daily Ops Dashboard</h2>
+              <p className="text-slate-400 mt-2">
+                Real-time operational health scoring and accountability tracking.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-emerald-500/20 to-yellow-400/20 border border-white/10 px-6 py-4 rounded-3xl backdrop-blur-xl shadow-2xl">
+              <div className="text-sm text-slate-300">Target Score</div>
+              <div className="text-4xl font-black text-emerald-300">12/15</div>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+            <table className="w-full text-left">
+              <thead className="bg-white/10 text-slate-200">
+                <tr>
+                  <th className="p-5 text-lg">Area</th>
+                  <th className="p-5 text-lg">Score</th>
+                  <th className="p-5 text-lg">Status</th>
+                  <th className="p-5 text-lg">Notes</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {[
+                  {
+                    area: 'Time Entries',
+                    score: '5/5',
+                    status: 'Green',
+                    notes: 'All entries verified and matched.'
+                  },
+                  {
+                    area: 'Tickets',
+                    score: '4/5',
+                    status: 'Yellow',
+                    notes: 'Minor stale ticket risk detected.'
+                  },
+                  {
+                    area: 'ShareFile',
+                    score: '5/5',
+                    status: 'Green',
+                    notes: 'Uploads complete and organized.'
+                  }
+                ].map((row, index) => (
+                  <tr
+                    key={index}
+                    className="border-t border-white/10 hover:bg-white/5 transition-all duration-300"
+                  >
+                    <td className="p-5 font-semibold">{row.area}</td>
+                    <td className="p-5 text-2xl font-black text-emerald-300">
+                      {row.score}
+                    </td>
+                    <td className="p-5">
+                      <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
+                        row.status === 'Green'
+                          ? 'bg-emerald-500/20 text-emerald-300'
+                          : 'bg-yellow-500/20 text-yellow-300'
+                      }`}>
+                        {row.status}
+                      </span>
+                    </td>
+                    <td className="p-5 text-slate-300">{row.notes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Daily Report Snapshot */}
+      <section className="relative z-10 px-6 md:px-16 py-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white/5 border border-white/10 rounded-[30px] p-8 backdrop-blur-xl shadow-2xl">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-3xl font-black">Daily Report Snapshot</h3>
+              <div className="text-5xl">📊</div>
+            </div>
+
+            <div className="space-y-6 text-slate-300">
+              <div>
+                <div className="text-sm uppercase tracking-widest text-slate-400 mb-2">
+                  Ops Score
+                </div>
+                <div className="text-6xl font-black text-emerald-300">14/15</div>
+              </div>
+
+              <div>
+                <div className="text-sm uppercase tracking-widest text-slate-400 mb-2">
+                  Top Issues
+                </div>
+                <ul className="space-y-2">
+                  <li>• Incomplete ticket notes</li>
+                  <li>• Minor Tsheets mismatch</li>
+                  <li>• One delayed upload verification</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="text-sm uppercase tracking-widest text-slate-400 mb-2">
+                  Next-Day Priorities
+                </div>
+                <p>
+                  Verify stale ticket activity, ensure complete time logs, and audit ShareFile uploads.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-emerald-500/10 to-yellow-400/10 border border-white/10 rounded-[30px] p-8 backdrop-blur-xl shadow-2xl">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-3xl font-black">Escalation Rules</h3>
+              <div className="text-5xl">⚠️</div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              <div className="bg-black/20 rounded-2xl p-5 border border-red-500/20">
+                <div className="text-red-300 font-bold text-lg mb-3">
+                  Immediate (Same Day)
+                </div>
+                <ul className="space-y-2 text-slate-300">
+                  <li>☐ Missing time entries</li>
+                  <li>☐ High-priority ticket inactivity</li>
+                  <li>☐ Missing client deliverables</li>
+                </ul>
+              </div>
+
+              <div className="bg-black/20 rounded-2xl p-5 border border-yellow-500/20">
+                <div className="text-yellow-300 font-bold text-lg mb-3">
+                  Next-Day Follow-Up
+                </div>
+                <ul className="space-y-2 text-slate-300">
+                  <li>☐ Repeated minor errors</li>
+                  <li>☐ Poor documentation quality</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 px-6 md:px-16 py-10">
+        <div className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-400">
+          <div>
+            © 2026 YAME Consulting — After-Hours Operations Monitoring System
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span className="px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-sm">
+              Daily Score ≥ 12/15
+            </span>
+            <span className="px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-400/20 text-yellow-300 text-sm">
+              Mandatory Daily Review
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
