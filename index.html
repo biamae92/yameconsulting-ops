@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAME After-Hours Audit Console</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { background:#020617; }
+.panel { background:rgba(255,255,255,0.04); backdrop-filter:blur(10px); }
+.soft { color:#94a3b8; }
+.xbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #64748b;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.xbox:checked {
+  border-color: #ef4444;
+  background: rgba(239,68,68,0.15);
+}
+.xbox:checked::after {
+  content: "✕";
+  color: #ef4444;
+  font-size: 12px;
+}
+
+.btn:hover{
+  border-color: gold;
+  box-shadow: 0 0 12px rgba(255,215,0,0.6);
+  background: rgba(255,255,255,0.03);
+}
+
+
+.btn{
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  padding:1px;
+  background:linear-gradient(90deg, transparent, gold, transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: goldFlow 3s linear infinite;
+}
+
+@keyframes goldFlow{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
+
+</style>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#05070d;
+  color:#e5e7eb;
+}
+
+/* background glow */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(255,180,0,0.15), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(255,180,0,0.12), transparent 40%);
+  pointer-events:none;
+}
+
+/* header */
+.header{
+  text-align:center;
+  padding:40px 20px 10px;
+}
+.header h1{font-family:"Cinzel", serif;
+  font-size:48px;
+  color:#cbd5b1;
+  letter-spacing:2px;
+  margin:0;
+}
+.header p{
+  color:#d4a85a;
+  font-style:italic;
+}
+
+/* gold divider */
+.divider{
+  height:2px;
+  background:linear-gradient(to right, transparent, gold, transparent);
+  margin:20px auto;
+  width:80%;
+}
+
+/* section title */
+.title{font-family:"Cinzel", serif;
+  text-align:center;
+  font-size:32px;
+  margin-top:10px;
+}
+.subtitle{
+  text-align:center;
+  color:#9ca3af;
+  margin-bottom:20px;
+}
+
+/* button */
+.btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 28px;
+  border-radius:10px;
+  border:none;
+  background:transparent;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(6px);
+  color:white;
+  font-size:18px;
+}
+
+/* glass cards */
+.card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,200,0,0.2);
+  border-radius:12px;
+  padding:20px;
+  backdrop-filter: blur(10px);
+  box-shadow:0 0 25px rgba(255,180,0,0.08);
+}
+
+/* layout */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:20px auto;
+}
+
+.row{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:15px;
+  max-width:1100px;
+  margin:20px auto;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  background:#020617;
+  border:1px solid #333;
+  border-radius:8px;
+  color:white;
+}
+
+/* footer row */
+.bottom{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:20px;
+  max-width:1100px;
+  margin:20px auto;
+}
+
+.final-btn{
+  display:block;
+  margin:30px auto;
+  padding:14px 40px;
+  border-radius:12px;
+  background:#111;
+  border:1px solid #555;
+  color:white;
+  font-size:18px;
+}
+
+.btn:hover{
+  border-color: gold;
+  box-shadow: 0 0 12px rgba(255,215,0,0.6);
+  background: rgba(255,255,255,0.03);
+}
+
+
+.btn{
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  padding:1px;
+  background:linear-gradient(90deg, transparent, gold, transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: goldFlow 3s linear infinite;
+}
+
+@keyframes goldFlow{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="header">
+  <h1>YAME CONSULTING</h1>
+  <p>Your accounting made easy</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="title">After-Hours Audit Console</div>
+<div class="subtitle">Operational integrity check • end-of-shift validation</div>
+
+<button class="btn" onclick="openDashboard()">View Dashboard</button>
+<div id="dashboard" style="display:none;">
+
+<div class="row card">
+  <div><label>Employee Name</label><input></div>
+  <div><label>Reviewer</label><input></div>
+  <div><label>Shift Timestamp</label><input value="4/24/2024 • 2:26:33 PM"></div>
+  <div><label>System Status</label><div style="color:gold;margin-top:10px;">Awaiting Input</div></div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>🪙 Time Integrity</h3>
+    <p><input type="checkbox" class="xbox"> No missing entries</p>
+    <p><input type="checkbox" class="xbox"> Descriptions accurate</p>
+    <p><input type="checkbox" class="xbox"> Hours not overlogged</p>
+    <p><input type="checkbox" class="xbox"> Correct client mapping</p>
+  </div>
+
+  <div class="card">
+    <h3>🪙 Zoho Desk</h3>
+    <p><input type="checkbox" class="xbox"> No stale tickets</p>
+    <p><input type="checkbox" class="xbox"> Updates match work done</p>
+    <p><input type="checkbox" class="xbox"> Comments aligned with logs</p>
+    <p><input type="checkbox" class="xbox"> No client risk</p>
+  </div>
+
+  <div class="card">
+    <h3>🪙 Sharefile</h3>
+    <p><input type="checkbox" class="xbox"> Files uploaded to QBO / mailscan cleared</p>
+    <p><input type="checkbox" class="xbox"> Correct folder</p>
+    <p><input type="checkbox" class="xbox"> Naming standards followed</p>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="card">
+    <h3>📊 Operational Score: 0</h3>
+  </div>
+  <div class="card">
+    <h3>🚨 Escalation Engine</h3>
+    <p>No Issues</p>
+  </div>
+</div>
+
+<button class="final-btn">Finalize & Lock Shift</button>
+</div>
+<script>
+function openDashboard(){document.getElementById("dashboard").style.display="block";}
+
+const boxes = document.querySelectorAll(".xbox");
+boxes.forEach(b=>b.addEventListener("change",update));
+function update(){
+ let total=0;
+ boxes.forEach(b=>{if(b.checked) total++;});
+ document.querySelector(".bottom .card h3").innerHTML="📊 Operational Score: "+total;
+ let esc=document.querySelectorAll(".bottom .card")[1].querySelector("p");
+ if(total>=1 && total<=6){esc.textContent="Warning"; esc.style.color="gold";}
+ else if(total>=7){esc.textContent="Critical"; esc.style.color="red";}
+ else{esc.textContent="No Issues"; esc.style.color="white";}
+}
+</script>
+</body>
+</html>
